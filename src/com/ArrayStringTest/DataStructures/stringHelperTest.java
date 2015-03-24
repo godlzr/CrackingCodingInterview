@@ -12,11 +12,13 @@ public class stringHelperTest {
 		
 		stringHelper sh = new stringHelper();
 		
-		String a = "asdjfhlkawhelifuaslkdjbvlak";
+		String a = "5*gopqe";
 		
-		String b = "abcdefg^hijk*lmnopqrst123,./[]7895";
+		String b = "op*egq5";
 		
-		assertEquals(sh.uniqueCharacter(b),true);
+		//assertEquals(sh.uniqueCharacter(b),true);
+		
+		assertTrue(sh.isPermutation(a, b));
 		
 	}
 
