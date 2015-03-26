@@ -17,9 +17,9 @@ public class stringHelperTest {
 		String b = "op*egq5";
 		
 		//assertEquals(sh.uniqueCharacter(b),true);
-		
-		assertTrue(sh.isPermutation(a, b));
-		
+		char[] str = {'m','y',' ','n','a','m','e',' ','i','s',' ','g','o','d','l','z','r'};
+		//assertTrue(sh.isPermutation(a, b));
+		System.out.print(sh.replaceSpace(str));
 	}
 
 }
