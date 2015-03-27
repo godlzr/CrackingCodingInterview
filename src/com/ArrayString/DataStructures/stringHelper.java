@@ -13,7 +13,20 @@
  * 
  * 1.4 replace space of string with "%20"
  * replaceSpce()
+ * 
+ * 
+ * 1.5Implement a method to perform basic string compression using the 
+ * counts of repeated characters. For example, the string aabccccccaaa would become a2b1c5a3. 
+ * If the "compressed" string would not become smaller than the original string, 
+ * you method should return the original string.
+ * stringCompression()
+ * 
+ * 1.8 Assume you have a method isSubstring( ) which checks if one word is a substring of another. 
+ * Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isString( ) 
+ * (e.g., "waterbottle" is a rotation of "erbottlewat").
+ * isRotate()
  */
+ 
 
 package com.ArrayString.DataStructures;
 import java.lang.reflect.Array;
@@ -94,6 +107,68 @@ public class stringHelper {
 		}
 		return newstr;
 	}
-
+	
+	/*
+	 * 1.5Implement a method to perform basic string compression using the 
+	 * counts of repeated characters. For example, the string aabccccccaaa would become a2b1c5a3. If the "compressed" string would not become smaller than the original string, 
+	 * you method should return the original string.
+	 */
+	public String stringCompression(String str) {
+		if(str.isEmpty())
+			return str;
+		
+		int difChar = 1;
+		
+		for(int i=1; i<str.length(); i++) {
+			if(str.charAt(i-1) != str.charAt(i))
+				difChar ++;
+		}
+		
+		int newStrLen = difChar*2;
+		
+		if(newStrLen >= str.length()) {
+			
+			return str;
+			
+		} else {
+			
+			StringBuffer newstr = new StringBuffer();
+			int count = 1;
+			char cur = str.charAt(0);
+			int j = 0;
+			
+			for(int i=1; i<str.length(); i++) {
+				
+				if(cur!=str.charAt(i)) {
+					
+					newstr.append(cur);
+					newstr.append(count);
+					cur = str.charAt(i);
+					count = 1;
+					
+				}else
+					count++;
+			}
+			
+			newstr.append(cur);
+			newstr.append(count);
+			return newstr.toString();
+		}
+	}
+/*
+ * 1.8 Assume you have a method isSubstring( ) which checks if one word is a substring of another. 
+ * Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isString( ) 
+ * (e.g., "waterbottle" is a rotation of "erbottlewat").
+ */
+	public boolean isRotate(String s1, String s2) {
+		String newStr = s1 + s1;
+		return isContain(newStr,s2);
+	}
+	public boolean isContain(String s1, String s2) {
+		if(s1.contains(s2))
+			return true;
+		else
+			return false;
+	}
 }
 
