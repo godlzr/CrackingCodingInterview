@@ -23,7 +23,31 @@ public class matrixHelper {
  * where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. 
  * Can you do this in place?
  */
-	public void matrixRotate(int[][] matrix) {}
+	public void matrixRotate(int[][] matrix) {
+		int size = matrix.length;
+
+		for(int layer=0; layer<size/2; layer++) {
+			
+			int first = layer;
+			
+			int last = size - layer -1;
+			
+			for(int i=first; i<last; ++i) {
+				//lefttop -> tmp
+				int tmp = matrix[first][i];
+				//righttop ->leftop
+				matrix[first][i] = matrix[i][last];
+				//rightbottom -> righttop
+				matrix[i][last] = matrix[last][last-i+first];
+				//leftbottom ->rightbotton
+				matrix[last][last-i+first] = matrix[last-i+first][first];
+				//lefttop->leftbottom
+				matrix[last-i+first][first] = tmp;
+				
+			}
+			
+		}
+	}
 /*
  * 1.7 Write an algorithm such that if an element in an MxN matrix is 0, 
  * its entire row and column are set to 0.
