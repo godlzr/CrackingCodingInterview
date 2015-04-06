@@ -43,15 +43,41 @@ public class linkedListHelperTest {
 		//System.out.print("the last Kth element is:");
 		//System.out.print(listHelper.getElement(list, 3));
 		
-		singlyLinkedListNode s1 = new singlyLinkedListNode(7);
+		/*singlyLinkedListNode s1 = new singlyLinkedListNode(7);
 		s1.appendToTail(6);
 		s1.appendToTail(3);
 		s1.appendToTail(2);
 		singlyLinkedListNode s2 = new singlyLinkedListNode(3);
 		s2.appendToTail(2);
-		s2.appendToTail(4);
-		
-		listHelper.linkedlistPrinter(listHelper.linkedListAdd(s1, s2));
+		s2.appendToTail(4);*/
+		/*singlyLinkedListNode s = new singlyLinkedListNode(1);
+		s.appendToTail(2);
+		s.appendToTail(3);
+		s.appendToTail(4);
+		s.appendToTail(5);
+		s.appendToTail(6);
+		s.appendToTail(6);
+		s.appendToTail(5);
+		s.appendToTail(4);
+		s.appendToTail(3);
+		s.appendToTail(2);
+		s.appendToTail(1);*/
+		singlyLinkedListNode circle = new singlyLinkedListNode(1);
+		circle.appendToTail(2);
+		circle.appendToTail(3);
+		circle.appendToTail(4);
+		circle.appendToTail(5);
+		circle.appendToTail(6);
+		circle.appendToTail(7);
+		circle.appendToTail(8);
+		circle.appendToTail(9);
+		circle.appendToTail(0);
+		singlyLinkedListNode forthNode = circle.next.next;
+		singlyLinkedListNode endNode = circle.next.next.next.next.next.next.next.next.next;
+		endNode.next = forthNode;
+		singlyLinkedListNode entry = listHelper.getFirstNodeOfCircle(circle);
+		//listHelper.linkedlistPrinter(circle);
+		System.out.print(entry.data);
 	}
 
 }

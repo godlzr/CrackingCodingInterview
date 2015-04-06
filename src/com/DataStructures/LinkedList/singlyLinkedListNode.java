@@ -4,7 +4,7 @@ public class singlyLinkedListNode {
 	
 	public singlyLinkedListNode next = null;
 	boolean visialbe = true;//flag for printing
-	int data;
+	public int data;
 	
 	public singlyLinkedListNode(int d) {
 		data = d;

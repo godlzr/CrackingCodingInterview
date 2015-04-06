@@ -35,7 +35,17 @@
  * Output: 9->1->2. That is, 912.
  * linkedListAdd()
  * 
+ * 2.6 Given a circular linked list, implement an algorithm which returns the node at the beginning of the loop.
+ * DEFINITION
+ * Circular linked list: A (corrupt) linked list in which a node's next pointer points to an earlier node, so as to make a loop in the linked list.
+ * EXAMPLE
+ * Input: A->B->C->D->E->C [the same C as earlier]
+ * Output: C
+ * 
+ *  
+ * 
  * 2.7 implement a function to check if a linked list is palindrome.
+ * isPalindrome
  */
 package com.DataStructures.LinkedList;
 import java.util.*;
@@ -228,10 +238,50 @@ public class linkedListHelper {
 		return sum;
 	} 
 	/*
+	 * 2.6 Given a circular linked list, implement an algorithm which returns the node at the beginning of the loop.
+	 * DEFINITION
+	 * Circular linked list: A (corrupt) linked list in which a node's next pointer points to an earlier node, so as to make a loop in the linked list.
+	 * EXAMPLE
+	 * Input: A->B->C->D->E->C [the same C as earlier]
+	 * Output: C
+	 */
+	public singlyLinkedListNode getFirstNodeOfCircle(singlyLinkedListNode entry) {
+		HashMap<singlyLinkedListNode, Boolean> map = new HashMap<singlyLinkedListNode, Boolean>();
+		map.put(entry, true);
+		entry = entry.next;
+		while(!map.containsKey(entry)) {
+			map.put(entry, true);
+			entry = entry.next;
+		}
+		return entry;
+	}
+	
+	
+	
+	/*
 	 * 2.7 implement a function to check if a linked list is palindrome.
 	 */
 	public boolean isPalindrome(singlyLinkedListNode head) {
-		
-		return false;
+		Stack<singlyLinkedListNode> frontHalf = new Stack<singlyLinkedListNode>();
+		int length = 0;
+		singlyLinkedListNode cur = head;
+		while(cur != null) {
+			length ++;
+			cur = cur.next;
+		}
+		cur = head;
+		for(int i=0; i<length/2; i++) {
+			frontHalf.push(cur);
+			cur = cur.next;
+		}
+		if(length%2 != 0)
+			cur = cur.next;
+		while(cur != null){
+			if(frontHalf.pop().data == cur.data)
+				cur = cur.next;
+			else
+				return false;
+		}
+		return true;
 	}
 }
