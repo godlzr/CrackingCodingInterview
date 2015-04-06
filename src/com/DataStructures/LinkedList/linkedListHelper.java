@@ -41,9 +41,8 @@
  * EXAMPLE
  * Input: A->B->C->D->E->C [the same C as earlier]
  * Output: C
- * 
+ * getFirstNodeOfCircle()
  *  
- * 
  * 2.7 implement a function to check if a linked list is palindrome.
  * isPalindrome
  */
