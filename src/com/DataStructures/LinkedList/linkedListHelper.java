@@ -44,7 +44,7 @@
  * getFirstNodeOfCircle()
  *  
  * 2.7 implement a function to check if a linked list is palindrome.
- * isPalindrome
+ * isPalindrome()
  */
 package com.DataStructures.LinkedList;
 import java.util.*;
