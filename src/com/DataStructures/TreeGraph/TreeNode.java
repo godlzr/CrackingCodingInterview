@@ -1,12 +1,10 @@
 package com.DataStructures.TreeGraph;
 
-public class TreeNode<T> {
-	T data;
-	TreeNode lchild,rchild;
+public class TreeNode {
+	int data;
+	TreeNode lchild = null,rchild = null;
 	
-	TreeNode(T d) {
+	TreeNode(int d) {
 		data = d;
-		lchild = null;
-		rchild = null;
 	}
 }

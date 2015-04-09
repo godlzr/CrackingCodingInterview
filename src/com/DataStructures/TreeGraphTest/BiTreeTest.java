@@ -8,17 +8,19 @@ public class BiTreeTest {
 
 	@Test
 	public void test() {
-		BiTree btree = new BiTree('R');
+		BiTree btree = new BiTree(1);
 		btree.createBiTree();
-		/*      		    R	
+		/*      		    R8	
 		 * 				/		\
-		 * 			 A		  	      B
+		 * 			 A4		  	      B12
 		 * 		/		\			/	\
-		 * 		C		D			E	  F
+		 * 		C2		D6			E10	  F14
 		 *  /	\	  /	 \		/	\	/	\
-		 * G	H	 I	  J 	K	 L  M    N
+		 * G1	H3	 I5	  J 7	K9	 L11  M 13   N15
 		 */
-		btree.PostOrderTraverse(btree.root);
+		//btree.InOrderTraverse(btree.root);
+		BinaryTreeHelper biTreeHelper = new BinaryTreeHelper();
+		System.out.print(biTreeHelper.isBST(btree.root));
 		
 	}
 
