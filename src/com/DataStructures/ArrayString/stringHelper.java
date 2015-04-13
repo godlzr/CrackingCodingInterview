@@ -37,6 +37,7 @@ public class stringHelper {
 	/*
 	 * 1.1 Implement an algorithm to determine if a string has all unique characters. 
 	 * What if you cannot use additional data structures?
+	 * O(n)
 	 */
 	public boolean uniqueCharacter(String s) {
 
@@ -61,6 +62,7 @@ public class stringHelper {
 	}
 	/*
 	 * 1.3 Given two strings, write a method to decide if one is a permutation of the other.
+	 * O(1)
 	 */
 	public boolean isPermutation(String a, String b) {
 		
@@ -76,6 +78,7 @@ public class stringHelper {
 	}
 	/*
 	 * 1.4 replace space of string with "%20"
+	 * O(n)
 	 */
 	public char[] replaceSpace(char[] str) {
 		if(str == null) {
@@ -112,6 +115,7 @@ public class stringHelper {
 	 * 1.5Implement a method to perform basic string compression using the 
 	 * counts of repeated characters. For example, the string aabccccccaaa would become a2b1c5a3. If the "compressed" string would not become smaller than the original string, 
 	 * you method should return the original string.
+	 * O(n)
 	 */
 	public String stringCompression(String str) {
 		if(str.isEmpty())
@@ -159,6 +163,7 @@ public class stringHelper {
  * 1.8 Assume you have a method isSubstring( ) which checks if one word is a substring of another. 
  * Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isString( ) 
  * (e.g., "waterbottle" is a rotation of "erbottlewat").
+ * O(1)
  */
 	public boolean isRotate(String s1, String s2) {
 		String newStr = s1 + s1;

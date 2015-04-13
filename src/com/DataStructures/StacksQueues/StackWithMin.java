@@ -1,3 +1,14 @@
+/*
+ * 
+ * The implementation of the Questions in "Cracking the Coding Interview"
+ * Author: Zhongrui Li
+ * 
+ * Data Structures
+ * Chapter 3
+ * 3.2 How would you design a stack which, in addition to push and pop, 
+ * also has a function min which returns the minimum element? 
+ * Push, pop and min should all operate in O(1) time.
+ */ 
 package com.DataStructures.StacksQueues;
 import com.DataStructures.StacksQueues.*;
 

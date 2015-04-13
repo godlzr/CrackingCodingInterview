@@ -11,7 +11,7 @@ public class BiTree {
 	}
 	
 	public void createBiTree() {
-		TreeNode a = new TreeNode(4);
+		/*TreeNode a = new TreeNode(4);
 		TreeNode b = new TreeNode(12);
 		TreeNode c = new TreeNode(2);
 		TreeNode d = new TreeNode(6);
@@ -38,7 +38,48 @@ public class BiTree {
 		e.lchild = k;
 		e.rchild = l;
 		f.lchild = m;
-		f.rchild = n;
+		f.rchild = n;*/
+		TreeNode a = new TreeNode(4);
+		TreeNode b = new TreeNode(12);
+		TreeNode c = new TreeNode(2);
+		TreeNode d = new TreeNode(6);
+		TreeNode e = new TreeNode(10);
+		TreeNode f = new TreeNode(14);
+		TreeNode g = new TreeNode(1);
+		TreeNode h = new TreeNode(3);
+		TreeNode i = new TreeNode(5);
+		TreeNode j = new TreeNode(7);
+		TreeNode k = new TreeNode(9);
+		TreeNode l = new TreeNode(11);
+		TreeNode m = new TreeNode(13);
+		root.lchild = a;
+		a.parent = root;
+		root.rchild = b;
+		b.parent = root;
+		a.lchild = c;
+		c.parent = a;
+		a.rchild = d;
+		b.parent = a;
+		b.lchild = e;
+		d.parent = a;
+		e.parent = b;
+		b.rchild = f;
+		f.parent = b;
+		c.lchild = g;
+		g.parent = c;
+		c.rchild = h;
+		h.parent = c;
+		d.lchild = i;
+		i.parent = d;
+		d.rchild = j;
+		j.parent = d;
+		e.lchild = k;
+		k.parent = e;
+		i.lchild = l;
+		l.parent = i;
+		l.rchild = m;
+		m.parent = l;
+
 	}
 	
 	public void PreOrderTraverse(TreeNode root) {
