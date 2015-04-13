@@ -50,9 +50,13 @@ public class BiTreeTest {
 			}
 			System.out.println();
 		}*/
-		TreeNode test = btree.root.lchild.rchild.rchild;
+		/*TreeNode n1 = btree.root.lchild.rchild.rchild;
 		TreeNode min = biTreeHelper.getSccessor(test);
-		System.out.print(min.data);
+		System.out.print(min.data);*/
+		TreeNode g = btree.root.lchild.lchild.lchild;
+		TreeNode i = btree.root.lchild.rchild.lchild;
+		TreeNode ancestor = biTreeHelper.getFirstCommonAncestor(g, i);
+		System.out.print(ancestor.data);
 		
 	}
 

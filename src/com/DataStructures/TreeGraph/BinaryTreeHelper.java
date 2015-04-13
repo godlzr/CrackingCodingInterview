@@ -23,13 +23,20 @@
  * 
  * 4.6 Write an algorithm to find the 'next' node(i.e., in-order successor) of a given node in a binary search tree. 
  * You may assume that each node has a link to its parent.
+ * getSccessor()
+ * 
+ * 4.7 Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. 
+ * Avoid storing additional nodes in a structure. NOTE: This is not necessarily a binary search tree.
+ * getFirstCommonAncestor()
  */
 package com.DataStructures.TreeGraph;
 
 import com.DataStructures.TreeGraph.*;
 
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Vector;;
+import java.util.Vector;
+import java.util.Map;
 public class BinaryTreeHelper<Number>{
 	Vector<Integer> inOrderTraResult = new Vector<Integer>();
 	
@@ -156,6 +163,28 @@ public class BinaryTreeHelper<Number>{
 			head = head.parent;
 		}
 		return head;
+	}
+	
+	/*
+	 * 4.7 Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. 
+	 * Avoid storing additional nodes in a structure. NOTE: This is not necessarily a binary search tree.
+	 * O(n) hashmap O(1), map(red black tree) O(logn)
+	 */
+	
+	public TreeNode getFirstCommonAncestor(TreeNode n1, TreeNode n2) {
+		if(n1 == null || n2 == null)
+			return null;
+		HashMap<TreeNode, Boolean> ancestorMap = new HashMap<TreeNode, Boolean>();
+		while(n1.parent != null) {
+			ancestorMap.put(n1.parent, true);
+			n1 = n1.parent;
+		}
+		while(n2.parent != null) {
+			if(ancestorMap.containsKey(n2.parent))
+				break;
+			n2 = n2.parent;
+		}
+		return n2.parent;
 	}
 	
 }
