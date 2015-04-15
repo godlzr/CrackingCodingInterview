@@ -1,6 +1,6 @@
 /*
  * 
- * The implementation of the Questions in "Cracking the Coding Interview"
+f * The implementation of the Questions in "Cracking the Coding Interview"
  * Author: Zhongrui Li
  * 
  * Data Structures

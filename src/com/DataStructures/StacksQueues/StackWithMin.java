@@ -10,34 +10,34 @@
  * Push, pop and min should all operate in O(1) time.
  */ 
 package com.DataStructures.StacksQueues;
-import com.DataStructures.StacksQueues.*;
+import com.DataStructures.StacksQueues.Stack;
 
-public class StackWithMin extends Stack<Number>{
-	Stack<Number> minStack = null;
+public class StackWithMin<T extends Comparable> extends Stack<T>{
+	Stack<T> minStack = null;
 	
-	public void push(Number d) {
-		Node<Number> t = new Node<Number>(d);
+	public void push(T d) {
+		Node<T> t = new Node(d);
 		t.next = top;
 		top = t;
 		if(this.minStack.peek() != null) {
-			if(this.minStack.peek().data.doubleValue() >  t.data.doubleValue())
+			if(this.minStack.peek().data.compareTo(t.data) >  0)
 				this.minStack.push(d);
 		} else
 			this.minStack.push(d);
 	}
 	
-	public Node<Number> pop() {
+	public Node<T> pop() {
 		if(top != null) {
-			Node<Number> item = top;
+			Node<T> item = top;
 			top = top.next;
-			if(item.data.doubleValue() == this.minStack.peek().data.doubleValue())
+			if(item.data.compareTo(this.minStack.peek().data) == 0)
 				this.minStack.pop();
 			return item;
 		}
 		return null;
 	}
 	
-	public Node<Number> min() {
+	public Node<T> min() {
 		return this.minStack.peek();
 	}
 	

@@ -1,10 +1,10 @@
 package com.DataStructures.StacksQueues;
-
-public class Node<Number> {
-	Number data;
-	Node<Number> next = null;
+import java.lang.Number;
+public class Node<T> {
+	T data;
+	Node<T> next = null;
 	
-	Node(Number d) {
+	Node(T d) {
 		data = d;
 	}
 }

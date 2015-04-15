@@ -1,14 +1,30 @@
+/*
+ * 
+ * The implementation of the Questions in "Cracking the Coding Interview"
+ * Author: Zhongrui Li
+ * 
+ * 
+ * Data Structures
+ * Chapter 3
+ * 
+ * Implementation of Stack class
+ * 
+ * 3.6 Write a program to sort a stack in ascending order (with biggest items on top). 
+ * You may use at most one additional stack to hold items, but you may not copy the 
+ * elements into any other data structure (such as an array). 
+ * The stack supports the following operations: push, pop, peek, and isEmpty.
+ */ 
 package com.DataStructures.StacksQueues;
 
 import com.DataStructures.StacksQueues.Node;
 
-public class Stack<Number> {
-	Node<Number> top;
-	int length;
+public class Stack<T> {
+	Node<T> top;
+	public int length;
 	
-	Node<Number> pop() {
+	public Node<T> pop() {
 		if(top != null) {
-			Node<Number> item = top;
+			Node<T> item = top;
 			top = top.next;
 			length--;
 			return item;
@@ -16,14 +32,16 @@ public class Stack<Number> {
 		return null;
 	}
 	
-	void push(Number d) {
-		Node<Number> t = new Node<Number>(d);
+	public void push(T d) {
+		Node<T> t = new Node<T>(d);
 		t.next = top;
 		top = t;
 		length++;
 	}
 	
-	Node<Number> peek() {
+	Node<T> peek() {
 		return top;
 	}
+	
+
 }
