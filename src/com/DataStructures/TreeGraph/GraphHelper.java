@@ -1,3 +1,13 @@
+/*
+ * 
+ * The implementation of the Questions in "Cracking the Coding Interview"
+ * Author: Zhongrui Li
+ * 
+ * Data Structures
+ * Chapter 4
+ * 4.2 Given a directed graph, design an algorithm to find out whether there is a route between two nodes.
+ * isConnected()
+ */
 package com.DataStructures.TreeGraph;
 
 import com.DataStructures.TreeGraph.*;
@@ -102,6 +112,9 @@ public class GraphHelper {
 		}
 	}
 	/*****************BFS****************************************/
+	/*
+	 * 4.2 Given a directed graph, design an algorithm to find out whether there is a route between two nodes.
+	 */
 	public boolean isConnected(DirectedGraphAdjacencyList g, int a, int b) {
 		Queue queue = new Queue();
 		visited = new boolean[g.vertex];
