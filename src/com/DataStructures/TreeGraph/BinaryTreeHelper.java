@@ -1,6 +1,6 @@
 /*
  * 
-f * The implementation of the Questions in "Cracking the Coding Interview"
+ * The implementation of the Questions in "Cracking the Coding Interview"
  * Author: Zhongrui Li
  * 
  * Data Structures
@@ -28,6 +28,10 @@ f * The implementation of the Questions in "Cracking the Coding Interview"
  * 4.7 Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. 
  * Avoid storing additional nodes in a structure. NOTE: This is not necessarily a binary search tree.
  * getFirstCommonAncestor()
+ * 
+ * 4.9 You are given a binary tree in which each node contains a value. Design an algorithm to print all paths which 
+ * sum to a given value. The path does not need to start or end at the root or a leaf, but it must go in a straight 
+ * line down.
  */
 package com.DataStructures.TreeGraph;
 
@@ -37,6 +41,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.Map;
+import java.util.LinkedList;
 public class BinaryTreeHelper<Number>{
 	Vector<Integer> inOrderTraResult = new Vector<Integer>();
 	
@@ -46,6 +51,8 @@ public class BinaryTreeHelper<Number>{
 	TreeNode minHeightBSTRoot;
 	
 	public Vector<Vector<TreeNode>> depthNodeList = new Vector<Vector<TreeNode>>();
+	
+	Vector<Vector<TreeNode>> pathList = new Vector<Vector<TreeNode>>();
 	/*
 	 * 4.1 Implement a function to check if a binary tree is balanced. For the purposes of this question, 
 	 * a balanced tree is defined to be a tree such that the heights of 
@@ -185,6 +192,32 @@ public class BinaryTreeHelper<Number>{
 			n2 = n2.parent;
 		}
 		return n2.parent;
+	}
+	/*
+	 * 4.9 You are given a binary tree in which each node contains a value. Design an algorithm 
+	 * to print all paths which sum to a given value. The path does not need to start or end at 
+	 * the root or a leaf, but it must go in a straight line down.
+	 */
+	
+	public void findPathbySpecificValue(TreeNode root, int sum, Vector<Integer> v, int level) {
+		if(root == null)
+			return;
+		v.add(root.data);
+		int tmp = 0;
+		for(int i = level; i > -1; --i) {
+			tmp += v.get(i);
+			if(tmp == sum)
+				printPath(v, i);
+		}
+		Vector<Integer> v1 = new Vector<Integer>(v);
+		Vector<Integer> v2 = new Vector<Integer>(v);
+		findPathbySpecificValue(root.lchild, sum, v1, level+1);
+		findPathbySpecificValue(root.rchild, sum, v2, level+1);
+	}
+	public void printPath(Vector<Integer> v, int level) {
+		for(int i = level; i < v.size(); i++)
+			System.out.print(v.get(i) + " ");
+		System.out.println();
 	}
 	
 }

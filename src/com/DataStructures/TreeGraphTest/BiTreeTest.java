@@ -53,10 +53,13 @@ public class BiTreeTest {
 		/*TreeNode n1 = btree.root.lchild.rchild.rchild;
 		TreeNode min = biTreeHelper.getSccessor(test);
 		System.out.print(min.data);*/
-		TreeNode g = btree.root.lchild.lchild.lchild;
+		
+		/*TreeNode g = btree.root.lchild.lchild.lchild;
 		TreeNode i = btree.root.lchild.rchild.lchild;
 		TreeNode ancestor = biTreeHelper.getFirstCommonAncestor(g, i);
-		System.out.print(ancestor.data);
+		System.out.print(ancestor.data);*/
+		Vector<Integer> v = new Vector<Integer>();
+		biTreeHelper.findPathbySpecificValue(btree.root, 14, v, 0);
 		
 	}
 

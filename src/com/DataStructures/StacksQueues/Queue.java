@@ -3,8 +3,12 @@ package com.DataStructures.StacksQueues;
 import com.DataStructures.StacksQueues.Node;
 public class Queue<T>{
 	Node<T> first, last;
+	int length;
 	
-	void enqueue(T d) {
+	public Queue(){
+		length = 0;
+	}
+	public void enqueue(T d) {
 		if(first == null) {
 			last = new Node<T>(d);
 			first = last;
@@ -13,9 +17,10 @@ public class Queue<T>{
 			last.next = item;
 			last = item;
 		}
+		length++;
 	}
 	
-	Node<T> dequeue() {
+	public Node<T> dequeue() {
 		if(first == null)
 			return null;
 		else {
@@ -23,8 +28,15 @@ public class Queue<T>{
 			first = first.next;
 			if(first == null)
 				last = null;
+			length--;
 			return item;
 		}
+	}
+	public boolean isEmpty() {
+		if(length == 0)
+			return true;
+		else
+			return false;
 	}
 	
 }

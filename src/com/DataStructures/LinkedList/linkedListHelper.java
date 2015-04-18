@@ -52,10 +52,10 @@ import java.lang.Math;
 import com.DataStructures.LinkedList.singlyLinkedListNode;
 import com.DataStructures.LinkedList.doubleLinkedListNode;
 
-public class linkedListHelper {
+public class linkedListHelper<T extends Comparable, Number> {
 	int count = 0;
 	
-	public void linkedlistPrinter(singlyLinkedListNode list){
+	public void linkedlistPrinter(singlyLinkedListNode<T> list){
 		while(list != null) {
 			if(list.visialbe == true)
 				System.out.print(" "+list.data );
@@ -69,7 +69,7 @@ public class linkedListHelper {
 		}
 	}
 	
-	public void linkedListNodePrinter(singlyLinkedListNode node){
+	public void linkedListNodePrinter(singlyLinkedListNode<T> node){
 
 			System.out.print(" "+ node.data );
 	}
@@ -78,10 +78,10 @@ public class linkedListHelper {
 	 * FOLLOW UP
 	 * How would you solve this problem if a temporary buffer is now allowed?
 	 */
-	public void duplicateRemovel(singlyLinkedListNode list ) {
+	public void duplicateRemovel(singlyLinkedListNode<T> list ) {
 		
-		HashSet<Integer> set = new HashSet<Integer>();
-		singlyLinkedListNode cur = list;
+		HashSet<T> set = new HashSet<T>();
+		singlyLinkedListNode<T> cur = list;
 		set.add(cur.data);	
 		while(cur.next != null) {
 			if(!set.add(cur.next.data)) {
@@ -92,10 +92,10 @@ public class linkedListHelper {
 
 	}
 	
-	public void duplicateRemovelNobuffer(singlyLinkedListNode list) {
+	public void duplicateRemovelNobuffer(singlyLinkedListNode<T> list) {
 
-		singlyLinkedListNode runner;
-		singlyLinkedListNode cur = list;
+		singlyLinkedListNode<T> runner;
+		singlyLinkedListNode<T> cur = list;
 		
 		while(cur.next != null) {
 
@@ -114,10 +114,10 @@ public class linkedListHelper {
 /*
  * 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
  */
-	public singlyLinkedListNode getElementDoublePtr(singlyLinkedListNode list, int k) {
+	public singlyLinkedListNode<T> getElementDoublePtr(singlyLinkedListNode<T> list, int k) {
 		
-		singlyLinkedListNode head = list;
-		singlyLinkedListNode tale = list;
+		singlyLinkedListNode<T> head = list;
+		singlyLinkedListNode<T> tale = list;
 		for(int i=0; i<k; i++) {
 			if(tale.next != null)
 				tale = tale.next;
@@ -136,12 +136,12 @@ public class linkedListHelper {
 		return head;
 	}
 	
-	public singlyLinkedListNode getElementRecursive(singlyLinkedListNode head, int k) {
+	public singlyLinkedListNode<T> getElementRecursive(singlyLinkedListNode<T> head, int k) {
 	
 		if(head == null)
 			return null;
 		
-		singlyLinkedListNode node = getElementRecursive(head.next,k);;
+		singlyLinkedListNode<T> node = getElementRecursive(head.next,k);;
 		
 		if(count == k) {
 			return head;
@@ -156,7 +156,7 @@ public class linkedListHelper {
 	 * Input: the node c from the linked list a->b->c->d->e
 	 * Result: nothing is returned, but the new linked list looks like a->b->d->e
 	 */
-	public boolean deleteMidElement(singlyLinkedListNode c) {
+	public boolean deleteMidElement(singlyLinkedListNode<T> c) {
 		if(c == null)
 			return false;
 		
@@ -173,16 +173,16 @@ public class linkedListHelper {
 	 * 2.4 Write code to partition a linked list around a value x, 
 	 * such that all nodes less than x come before all node greater than or equal to x.
 	 */
-	public singlyLinkedListNode listPartition(singlyLinkedListNode head, int x) {
+	public singlyLinkedListNode<T> listPartition(singlyLinkedListNode<T> head, int x) {
 		
-		singlyLinkedListNode lessThanX = new singlyLinkedListNode(0);
+		singlyLinkedListNode<T> lessThanX = new singlyLinkedListNode(0);
 		
-		singlyLinkedListNode greaterThanX = new singlyLinkedListNode(0);
+		singlyLinkedListNode<T> greaterThanX = new singlyLinkedListNode(0);
 		
-		singlyLinkedListNode cur = head;
+		singlyLinkedListNode<T> cur = head;
 		
 		while(cur != null) {
-			if (cur.data > x)
+			if (cur.data.compareTo(x) > 0)
 				greaterThanX.appendToTail(cur.data);
 			else
 				lessThanX.appendToTail(cur.data);
@@ -194,7 +194,7 @@ public class linkedListHelper {
 		greaterThanX.data = greaterThanX.next.data;
 		greaterThanX.next = greaterThanX.next.next;
 		
-		singlyLinkedListNode tale = lessThanX;
+		singlyLinkedListNode<T> tale = lessThanX;
 		while(tale.next != null)
 			tale = tale.next;
 		
@@ -213,13 +213,13 @@ public class linkedListHelper {
 	 * Input: (6->1->7) + (2->9->5). That is, 617 + 295.
 	 * Output: 9->1->2. That is, 912.
 	 */
-	public singlyLinkedListNode linkedListAdd(singlyLinkedListNode l1, singlyLinkedListNode l2) {
+	public singlyLinkedListNode<T>  linkedListAdd(singlyLinkedListNode<T> l1, singlyLinkedListNode<T> l2) {
 		
 
 		int value = 0;
 		int carry = 1;
 		while(l1 != null) {
-			value += l1.data*carry;
+			value += (l1.data)*carry;
 			carry *= 10; 
 			l1 = l1.next;
 		}
@@ -229,7 +229,7 @@ public class linkedListHelper {
 			carry *= 10; 
 			l2 = l2.next;
 		}
-		singlyLinkedListNode sum = new singlyLinkedListNode(value%10);
+		singlyLinkedListNode<T>  sum = new singlyLinkedListNode(value%10);
 		for(int i = 100; Math.floor(value*10/i) != 0; i*=10 ) {
 			sum.appendToTail((value%i)/(i/10));
 			value -= value%i;
@@ -244,8 +244,8 @@ public class linkedListHelper {
 	 * Input: A->B->C->D->E->C [the same C as earlier]
 	 * Output: C
 	 */
-	public singlyLinkedListNode getFirstNodeOfCircle(singlyLinkedListNode entry) {
-		HashMap<singlyLinkedListNode, Boolean> map = new HashMap<singlyLinkedListNode, Boolean>();
+	public singlyLinkedListNode<T>  getFirstNodeOfCircle(singlyLinkedListNode<T>  entry) {
+		HashMap<singlyLinkedListNode<T> , Boolean> map = new HashMap<singlyLinkedListNode<T> , Boolean>();
 		map.put(entry, true);
 		entry = entry.next;
 		while(!map.containsKey(entry)) {
@@ -260,10 +260,10 @@ public class linkedListHelper {
 	/*
 	 * 2.7 implement a function to check if a linked list is palindrome.
 	 */
-	public boolean isPalindrome(singlyLinkedListNode head) {
-		Stack<singlyLinkedListNode> frontHalf = new Stack<singlyLinkedListNode>();
+	public boolean isPalindrome(singlyLinkedListNode<T>  head) {
+		Stack<singlyLinkedListNode<T> > frontHalf = new Stack<singlyLinkedListNode<T> >();
 		int length = 0;
-		singlyLinkedListNode cur = head;
+		singlyLinkedListNode<T>  cur = head;
 		while(cur != null) {
 			length ++;
 			cur = cur.next;

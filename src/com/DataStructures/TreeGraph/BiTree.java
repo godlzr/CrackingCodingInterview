@@ -11,6 +11,14 @@ public class BiTree {
 	}
 	
 	public void createBiTree() {
+		/*      		    R8	
+		 * 				/		\
+		 * 			 A4		  	      B12
+		 * 		/		\			/	\
+		 * 		C2		D6			E10	  F14
+		 *  /	\	  /	 \		/	\	/	\
+		 * G1	H3	 I5	  J 7	K9	 L11  M 13   N15
+		 */
 		/*TreeNode a = new TreeNode(4);
 		TreeNode b = new TreeNode(12);
 		TreeNode c = new TreeNode(2);
@@ -38,7 +46,19 @@ public class BiTree {
 		e.lchild = k;
 		e.rchild = l;
 		f.lchild = m;
-		f.rchild = n;*/
+		f.rchild = n;
+		/*      		    R8	
+		 * 				/		   \
+		 * 			 A4		  	      B12
+		 * 		/		\			/	\
+		 * 		C2		D6			E10	  F14
+		 *  /	\	  /	 \		/		
+		 * G1	H3	 I5	  J 7	K9
+		 * 			/
+		 * 			L11
+		 * 			 \
+		 * 			  M	13	  
+		 */
 		TreeNode a = new TreeNode(4);
 		TreeNode b = new TreeNode(12);
 		TreeNode c = new TreeNode(2);

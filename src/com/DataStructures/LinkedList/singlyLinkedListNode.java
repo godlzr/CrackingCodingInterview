@@ -1,18 +1,18 @@
 package com.DataStructures.LinkedList;
 
-public class singlyLinkedListNode {
+public class singlyLinkedListNode<T> {
 	
-	public singlyLinkedListNode next = null;
+	public singlyLinkedListNode<T> next = null;
 	boolean visialbe = true;//flag for printing
-	public int data;
+	public T data;
 	
-	public singlyLinkedListNode(int d) {
+	public singlyLinkedListNode(T d) {
 		data = d;
 	}
 	
-	public void appendToTail(int d) {
-		singlyLinkedListNode end = new singlyLinkedListNode(d);
-		singlyLinkedListNode n = this;
+	public void appendToTail(T d) {
+		singlyLinkedListNode<T> end = new singlyLinkedListNode<T>(d);
+		singlyLinkedListNode<T> n = this;
 		while(n.next != null) {
 			n = n.next;
 		}
